@@ -213,8 +213,8 @@ function loadConcurrent(uid, channel, args) {
       .then((response) => response.json())
       .then((body) => {
         try {
-          if (body.status == undefined && body.status != 404) {
-            if (args["7tv"]["channel"] == true) {
+          if (body.status != undefined && body.status != 404) {
+            if (args["7tv"]["channel"] != true) {
               fetch(`https://api.7tv.app/v2/users/${channel}/emotes`)
                 .then((response) => response.json())
                 .then((body) => {
