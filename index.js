@@ -310,7 +310,13 @@ function loadConcurrent(uid, channel, args) {
             error: "Failed to load 7TV global emotes for " + channel,
           });
         }
-      });
+      })
+      .catch((error) =>
+        exports.events.emit("error", {
+          channel: channel,
+          error: "Failed to load 7TV global emotes for " + channel,
+        })
+      );
   } else {
     checkLoadedAll(channel, "7tv", "channel", null, args);
   }
